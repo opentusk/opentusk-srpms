@@ -1,0 +1,10 @@
+This configuration of fop is built from binary packaging, becuase
+compilation under RHEL 5 and 6 is infeasible without a lot of other
+Java utilities installed. It's also installed only in
+"/usr/local/tusk-version" and is accessible as "/usr/local/fop/fop",
+not the normal RHEL location of "/usr/bin/fop.
+
+This configuration also has TUSKS specific configuration files,
+visible in /usr/local/fop/conf.
+
+		Nico Kadel-Garcia <ikadel01@tufts.edu>
