@@ -1,0 +1,12 @@
+
+perl-Test-Deep is required for building some of the RPM's used for other
+TUSK add-ons. It can be confusing to install becuase it's available from the "rpmforge-extras" repository, which needs this:
+
+    yum install --enablerepo=rpmforge-extras perl-Test-Deep
+
+For building RPM's that require perl-Test-Deep with mock, see the
+directions in ../mock.
+
+				Nioc Kadel-Garcia
+				nico.kadel@tufts.ed
+				TUSK Senior Sysadmin
