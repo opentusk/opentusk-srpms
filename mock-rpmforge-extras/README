@@ -1,0 +1,29 @@
+
+Use "mock" to build these RPM packages from the sources. mock is
+available from EPEL, and builds RPM packages in a minimally configured
+chroot cage so that they are built consistently and without local
+modificatons to a buld system interfering with building clean packages.
+
+These are /etc/mock files that include the "rpmforge" and
+"rpmforge-extras" repositories. They're needed to build certain perl
+modules for TUSK with mock, particularly perl-HTML-Mason, which
+requires the 'perl(Test::Deep)' module for testing.
+
+Install mock and put these files in place to allow mock to build such
+components.
+
+	sudo yum install mock
+	usermod -a -G mock 'youraccount'
+
+	# Then log out, and back in, to get the "mock group permissions
+
+	# Test basic mock operation
+	mock init
+	# Install the custom config files
+	sudo cp rpmforge*cfg /etc/mock
+	# Test the custom repo
+	mock -r rpmforge-extras-5-i386 init
+
+			Nico Kadel-Garcia
+			nico.kadel@tufts.edu
+			TUSK Senior Sysadmin
