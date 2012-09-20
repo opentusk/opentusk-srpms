@@ -1,0 +1,6 @@
+tusk-perl-XML-Twig is specifically provided to move aside
+perl-XML-Twig from normal updates, and allow installing the out-of-date
+XML::Twig module 3.17 required by TUSK. It's based on a rebuild
+of the RHEL package.
+
+	     	 Nico Kadel-Garcia <ikadel01@tufts.edu>
