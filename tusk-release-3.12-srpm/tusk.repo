@@ -5,13 +5,6 @@ enabled=1
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TUSK-3
 
-[tusk3-dev]
-name=TUSK dev software repository for Enterprise Linux $releasever - $basearch
-baseurl=http://repo3.tusk.tufts.edu/$releasever/$basearch
-enabled=0
-gpgcheck=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TUSK-3
-
 [tusk3-source]
 name=TUSK source repository for Enterprise Linux $releasever
 baseurl=http://repo3.tusk.tufts.edu/$releasever/SRPM
