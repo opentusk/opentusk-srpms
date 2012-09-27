@@ -5,9 +5,10 @@ chroot cage so that they are built consistently and without local
 modificatons to a buld system interfering with building clean packages.
 
 These are /etc/mock files that include the "rpmforge" and
-"rpmforge-extras" repositories. They're needed to build certain perl
-modules for TUSK with mock, particularly perl-HTML-Mason, which
-requires the 'perl(Test::Deep)' module for testing.
+"rpmforge-extras" repositories, and additional configurations for
+OpenTUSK published RPM's. They're needed to build certain perl modules
+for TUSK with mock, particularly perl-HTML-Mason, which requires the
+'perl(Test::Deep)' module for testing, nad others that require perl(Log::Any)'
 
 Install mock and put these files in place to allow mock to build such
 components.
@@ -21,8 +22,10 @@ components.
 	mock init
 	# Install the custom config files
 	sudo cp rpmforge*cfg /etc/mock
+	sudo cp opentusk*cfg /etc/mock
 	# Test the custom repo
 	mock -r rpmforge-extras-5-i386 init
+	mock -r opentusk-5-i386 init
 
 			Nico Kadel-Garcia
 			nico.kadel@tufts.edu
