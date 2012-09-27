@@ -1,0 +1,13 @@
+The MasonX::Request::WithApacheSession Perl module is used by TUSK.
+It is not yet available in RPEL or RPMforge.
+
+It has significant build dependencies on other components not yet in
+EPSL or RPMforge, including:
+
+    perl(HTML::Mason)
+
+The .spec file is easily compiled with the "cpanspec" tool and those
+dependencies already installed locally.
+
+			Nico Kadel-Garcia <nico.kadel@tufts.edu>
+			TUSK Senior Sysadmin
