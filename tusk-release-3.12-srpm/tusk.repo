@@ -1,0 +1,20 @@
+[tusk3]
+name=TUSK software repository for Enterprise Linux $releasever - $basearch
+baseurl=http://repo.tusk.tufts.edu/tusk3/$releasever/$basearch
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TUSK-4
+
+[tusk3-dev]
+name=TUSK dev software repository for Enterprise Linux $releasever - $basearch
+baseurl=http://repo.tusk.tufts.edu/tusk3/$releasever/$basearch
+enabled=0
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TUSK-4
+
+[tusk3-source]
+name=TUSK source repository for Enterprise Linux $releasever
+baseurl=http://repo.tusk.tufts.edu/tusk3/$releasever/SRPM
+enabled=0
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TUSK-4
