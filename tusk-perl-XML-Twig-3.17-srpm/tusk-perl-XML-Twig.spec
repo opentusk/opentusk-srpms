@@ -14,7 +14,7 @@
 name:      tusk-perl-XML-Twig
 summary:   XML-Twig - XML, The Perl Way
 version:   3.17
-release:   0.1%{?dist}
+release:   0.2%{?dist}
 vendor:    Michel Rodriguez <mirod@xmltwig.com>
 packager:  Arix International <cpan2rpm@arix.com>
 license:   Artistic
@@ -39,9 +39,9 @@ buildrequires:	perl(XML::Simple)
 buildrequires:	perl(XML::XPath)
 buildrequires:	perl(YAML)
 # Force conflicts with other releases
-Conflicts: perl-XML-Twig
-Provides:  perl-XML-Twig = %{version}
+Conflicts: perl-XML-Twig >= 3.18
 Obsoletes: perl-XML-Twig <= 3.17
+Provides:  perl-XML-Twig = %{version}
 
 %description
 This TUSK specific version of XML::Twig is out-of-date
@@ -157,11 +157,12 @@ find %{buildroot}%{_prefix}             \
 %defattr(-,root,root)
 
 %changelog
-* Fri Sep 14 2012 ikadel01@tufts.edu
+* Thu Sep 27 2012 Nico Kadel-Garcia <nico.kadel@tufts.edu> - 3.17-0.2
+- Update Conflicts and Obsoletes to handle 3.17 correctly.
 - Renamed to "tusk-XML-Twig" to avoid version confusion with up-to-date
   versions.
 
-* Tue Aug 14 2012 ikadel01@tufts.edu
+* Tue Aug 14 2012 Nico Kadel-Garcia <nico.kadel@tufts.edu> - 3.17-0.1
 - Initial build.
 - Add 'yes' output to build step because Makefile.PL queries about xml_pp
 - Add 'dist' to Release
