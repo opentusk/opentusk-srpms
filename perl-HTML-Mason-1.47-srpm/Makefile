@@ -5,15 +5,15 @@
 # Assure that sorting is case sensitive
 LANG=C
 
-# Mock for this package requires rpmforge-extras packages,
+# Mock for this package requires opentusk packages,
 # especially perl-Test-Deep
-#MOCKS+=rpmforge-extras-6-i386
-MOCKS+=rpmforge-extras-5-i386
-#MOCKS+=rpmforge-extras-4-i386
+#MOCKS+=opentusk-6-i386
+MOCKS+=opentusk-5-i386
+#MOCKS+=opentusk-4-i386
 
-MOCKS+=rpmforge-extras-6-x86_64
-MOCKS+=rpmforge-extras-5-x86_64
-#MOCKS+=rpmforge-extras-4-x86_64
+MOCKS+=opentusk-6-x86_64
+MOCKS+=opentusk-5-x86_64
+#MOCKS+=opentusk-4-x86_64
 
 SPEC := `ls *.spec | head -1`
 PKGNAME := "`ls *.spec | head -1 | sed 's/.spec$$//g'`"
@@ -35,7 +35,7 @@ srpm:: verifyspec FORCE
 		-bs $(SPEC) --nodeps
 
 build:: srpm FORCE
-	rpmbuild --rebuild `ls *.src.rpm | grep -v ^rpmforge-`
+	rpmbuild --rebuild `ls *.src.rpm | grep -v ^opentusk-`
 
 $(MOCKS):: verifyspec FORCE
 	@echo "Building $@ RPMS with $(SPEC)"

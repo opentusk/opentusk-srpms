@@ -14,7 +14,7 @@
 name:      perl-HTML-Mason
 summary:   HTML-Mason - Perl module
 version:   1.47
-release:   0.1%{?dist}
+release:   0.2%{?dist}
 vendor:    Jonathan Swartz <swartz@pobox.com
 packager:  Nico Kadel-Garcia <nico.kadel@tufts.edu>
 license:   Artistic
@@ -25,6 +25,14 @@ buildarch: noarch
 prefix:    %(echo %{_prefix})
 buildrequires: perl(Log::Any)
 source:    HTML-Mason-1.47.tar.gz
+# manually added for RHEL 5 compilation
+BuildRequires: perl(CGI)
+BuildRequires: perl(Class::Container)
+BuildRequires: perl(Exception::Class)
+BuildRequires: perl(HTML::Entities)
+BuildRequires: perl(Module::Build)
+BuildRequires: perl(Params::Validate)
+BuildRequires: perl(Test::Deep)
 
 %description
 Mason is a Perl-based web site development and delivery
@@ -127,6 +135,9 @@ find %{buildroot}%{_prefix}             \
 %defattr(-,root,root)
 
 %changelog
+* Thu Sep 27 2012 Nico Kadel-Garcia <nico.kadel@tufts.edu> - 1.47-0.2
+- Add BuildRequires for RHEL 5 mock compilation
+
 * Wed Sep 19 2012 Nico Kadel-Garcia <nico.kadel@tufts.edu> - 1.47-0.1
 - Initial build with cpan2rpm
 - Add description, set release to 0.1
