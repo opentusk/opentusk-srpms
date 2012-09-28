@@ -34,7 +34,7 @@ output. Output formats currently supported include PDF, PS, PCL, AFP,
 XML (area tree representation), Print, AWT and PNG, and to a lesser
 extent, RTF and TXT. The primary output target is PDF.
 
-This distribution in %{fopdir} is built from binary tarballs, not
+This distribution in %{_fopdir} is built from binary tarballs, not
 compiled, for use by TUSK software.
 
 %prep
