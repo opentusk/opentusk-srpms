@@ -1,6 +1,6 @@
 Name:		opentusk-release
 Version:	4.00
-Release:	0.1%{?dist}
+Release:	0.2%{?dist}
 Summary:	OPENTUSK release file and RPM configuration management
 
 Group:		System Environment/Base
@@ -49,7 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc GPL
-%config(noreplace) /etc/yum.repos.d/*
+#%config(noreplace) /etc/yum.repos.d/*
+%config /etc/yum.repos.d/*
 /etc/pki/rpm-gpg/*
 
 %changelog
