@@ -1,6 +1,6 @@
 Name:           perl-HTML-Mason
-Version:        1.47
-Release:        0.3%{?dist}
+Version:        1.48
+Release:        0.1%{?dist}
 Epoch:          1
 Summary:        Powerful Perl-based web site development and delivery engine
 License:        GPL+ or Artistic
@@ -99,7 +99,10 @@ rm -rf $RPM_BUILD_ROOT %{__perl_requires} %{__perl_provides}
 %dir %{_localstatedir}/www/mason
 
 %changelog
-* Tue Oct 2 2012 Nico KAdel-Garcia <nico.kadel@tufts.edu> - 1:1.47-0.2
+* Thu Oct 04 2012  Nico KAdel-Garcia <nico.kadel@tufts.edu> - 1:1.48-0.1
+- Update to 1.48
+
+* Tue Oct 02 2012 Nico KAdel-Garcia <nico.kadel@tufts.edu> - 1:1.47-0.3
 - Update to 1.47 from EPEL .spec file, instead of cpan2rpm.
 - Add BuildRequires: perl(Log::Any), perl(Test::Deep)
 - Add BuildRequires: perl(CGI) for RHEL 6
