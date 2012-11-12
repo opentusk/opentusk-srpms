@@ -6,7 +6,7 @@
 LANG=C
 
 #MOCKS+=epel-6-i386
-#MOCKS+=epel-5-i386
+MOCKS+=epel-5-i386
 #MOCKS+=epel-4-i386
 
 MOCKS+=epel-6-x86_64

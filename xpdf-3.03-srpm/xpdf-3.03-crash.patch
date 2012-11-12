@@ -1,0 +1,48 @@
+diff -up xpdf-3.03/fofi/FoFiType1.cc.crash xpdf-3.03/fofi/FoFiType1.cc
+--- xpdf-3.03/fofi/FoFiType1.cc.crash	2011-08-15 17:08:53.000000000 -0400
++++ xpdf-3.03/fofi/FoFiType1.cc	2011-08-22 13:44:32.936859153 -0400
+@@ -268,9 +268,14 @@ void FoFiType1::parse() {
+ 	    }
+ 	  }
+ 	} else {
+-	  if (strtok(buf, " \t") &&
+-	      (p = strtok(NULL, " \t\n\r")) && !strcmp(p, "def")) {
+-	    break;
++	  p = strtok(buf, " \t\n\r");
++	  if (p)
++	  {
++	    if (!strcmp(p, "def")) break;
++	    if (!strcmp(p, "readonly")) break;
++	    // the spec does not says this but i'm mantaining old xpdf behaviour that accepts "foo def" as end of the encoding array
++	    p = strtok(buf, " \t\n\r");
++	    if (p && !strcmp(p, "def")) break;
+ 	  }
+ 	}
+       }
+diff -up xpdf-3.03/splash/Splash.cc.crash xpdf-3.03/splash/Splash.cc
+--- xpdf-3.03/splash/Splash.cc.crash	2011-08-15 17:08:53.000000000 -0400
++++ xpdf-3.03/splash/Splash.cc	2011-08-22 13:46:54.295231194 -0400
+@@ -2053,6 +2053,11 @@ SplashError Splash::fillWithPattern(Spla
+     xPath->aaScale();
+   }
+   xPath->sort();
++  if (!&xPath->segs[0])
++  {
++    delete xPath;
++    return splashErrEmptyPath;
++  }
+   yMinI = state->clip->getYMinI();
+   yMaxI = state->clip->getYMaxI();
+   if (vectorAntialias && !inShading) {
+@@ -2194,6 +2199,11 @@ SplashError Splash::xorFill(SplashPath *
+   }
+   xPath = new SplashXPath(path, state->matrix, state->flatness, gTrue);
+   xPath->sort();
++  if (!&xPath->segs[0])
++  {
++    delete xPath;
++    return splashErrEmptyPath;
++  }
+   scanner = new SplashXPathScanner(xPath, eo, state->clip->getYMinI(),
+ 				   state->clip->getYMaxI());
+ 

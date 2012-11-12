@@ -1,0 +1,12 @@
+diff -up xpdf-3.03/xpdf/XPDFViewer.cc.BAD xpdf-3.03/xpdf/XPDFViewer.cc
+--- xpdf-3.03/xpdf/XPDFViewer.cc.BAD	2011-08-22 14:19:42.845075813 -0400
++++ xpdf-3.03/xpdf/XPDFViewer.cc	2011-08-22 14:19:47.953013145 -0400
+@@ -1807,7 +1807,7 @@ void XPDFViewer::initToolbar(Widget pare
+   menuPane = XmCreatePulldownMenu(toolBar, "zoomMenuPane", args, n);
+   for (i = 0; i < nZoomMenuItems; ++i) {
+     n = 0;
+-    s = XmStringCreateLocalized(zoomMenuInfo[i].label);
++    s = XmStringCreateLocalized((char *)zoomMenuInfo[i].label);
+     XtSetArg(args[n], XmNlabelString, s); ++n;
+     XtSetArg(args[n], XmNuserData, (XtPointer)i); ++n;
+     sprintf(buf, "zoom%d", i);
