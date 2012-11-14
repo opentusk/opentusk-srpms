@@ -1,0 +1,19 @@
+This Apache 1.3 package is specifically for TUSK version 3.12 or
+older, onr CentOS or RHEL 5, with i386 architectures.  It is datamined
+from the old binary RPM's for this package: the source code is no
+longer available, and the software is deprecated.
+
+The new OpenTUSK 4.0 available at GitHub is open source, compatible
+with HTTPD 2.2 and more modern mod_perl components. Please upgrade to
+x86_64 operating systems and OpenTUSK 4.0 as soon as possible. The
+softwae and notes are available at:
+
+	https://github.com/opentusk/Opentusk
+
+Publicly available installation notes are also available at:
+
+	https://wikis.uit.tufts.edu/confluence/display/TUSKpub/Home
+
+
+			Nico Kadel-Garcia <nico.kadel@tufts.edu>
+			TUSK Senior Sysadmin
