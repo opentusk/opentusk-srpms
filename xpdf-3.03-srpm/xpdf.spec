@@ -1,16 +1,15 @@
 Summary: A PDF file viewer for the X Window System
 Name: xpdf
 Version: 3.03
-Release: 0.2%{?dist}
+Release: 0.3%{?dist}
 License: GPLv2 or GPLv3
 Epoch: 1
 Url: http://www.foolabs.com/xpdf/
 Group: Applications/Publishing
 
-# There are some troublesome files named vms_*. We pull them out of the 
-# tarball since we're not even using them on Linux.
-# Source0: ftp://ftp.foolabs.com/pub/xpdf/%{name}-%{version}.tar.gz
-Source0: %{name}-%{version}-novms.tar.gz
+# There are some troublesome files named vms_*. We pull them out
+# in setup. 
+Source0: ftp://ftp.foolabs.com/pub/xpdf/%{name}-%{version}.tar.gz
 # We have to pull the CMap files out due to non-free license.
 # Source3: ftp://ftp.foolabs.com/pub/xpdf/xpdf-chinese-simplified-2004-jul-27.tar.gz
 Source3: xpdf-chinese-simplified-2004-jul-27-NOCMAP.tar.gz
@@ -87,6 +86,8 @@ standard X fonts.
 
 %prep
 %setup -q -a 3 -a 4 -a 5 -a 6 -a 7 -a 8 -a 12 -a 13 -a 14 -a 15 -a 16
+# Clear troubesome vms_* files
+find . -name vms_\* -exec rm -f {} \;
 %patch0 -p1
 %patch3 -p1 -b .ext
 %patch6 -p1 -b .core
@@ -258,10 +259,11 @@ update-desktop-database &> /dev/null ||:
 %{_datadir}/xpdf/latin2
 
 %changelog
-* Mon Nov 12 2012 Nico Kadel-Garcia <nico.kadel@tufts.edu> - 1:3.03-0.2
-- Backport version to 3.03-0.2
+* Mon Nov 12 2012 Nico Kadel-Garcia <nico.kadel@tufts.edu> - 1:3.03-0.3
+- Backport version to 3.03-0.3
 - Use openmotif-devel, not lesstif-devel, for RHEL 5 compatiblity
 - Add BuildRequires: gcc-c++
+- Flush vms_* files
 
 * Sat Jan 14 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1:3.03-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
