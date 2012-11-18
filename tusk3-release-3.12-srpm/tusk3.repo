@@ -1,0 +1,13 @@
+[tusk3]
+name=TUSK 3.x software repository
+baseurl=http://repo3.tusk.tufts.edu/$releasever/$basearch/
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TUSK-3
+
+[tusk3-source]
+name=TUSK 3.x source repository
+baseurl=http://repo3.tusk.tufts.edu/$releasever/SRPMS/
+enabled=0
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-TUSK-3
