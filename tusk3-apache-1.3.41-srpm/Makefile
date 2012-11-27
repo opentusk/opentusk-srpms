@@ -13,8 +13,9 @@ MOCKS+=epel-5-i386
 #MOCKS+=epel-5-x86_64
 #MOCKS+=epel-4-x86_64
 
+# Recent changes in mock-1.1.28 demand full SPEC file path
 SPEC := `ls *.spec | head -1`
-PKGNAME := "`ls *.spec | head -1 | sed 's/.spec$$//g'`"
+PKGNAME := `ls *.spec | head -1 | sed 's/.spec$$//g'`
 
 all:: verifyspec $(MOCKS)
 
@@ -30,7 +31,7 @@ srpm:: verifyspec FORCE
 	rm -f $(PKGNAME)*.src.rpm
 	rpmbuild --define '_sourcedir $(PWD)' \
 		--define '_srcrpmdir $(PWD)' \
-		-bs $(SPEC) --nodeps
+		-bs $(PWD)/$(SPEC) --nodeps
 
 build:: srpm FORCE
 	rpmbuild --rebuild `ls *.src.rpm | grep -v ^epel-`
@@ -38,16 +39,18 @@ build:: srpm FORCE
 $(MOCKS):: verifyspec FORCE
 	@echo "Building $@ RPMS with $(SPEC)"
 	@rm -rf $@
-	mock -q -r $@ --sources=$(PWD) \
+	/usr/bin/mock -q -r $@ \
 		--resultdir=$(PWD)/$@ \
-		--buildsrpm --spec=$(SPEC)
+		--buildsrpm \
+		--sources=$(PWD) \
+		--spec=$(PWD)/$(SPEC)
 	@echo "Storing $@/*.src.rpm in $@.rpm"
 	/bin/mv $@/*.src.rpm $@.src.rpm
 	@echo "Actally building RPMS in $@"
 	@rm -rf $@
-	mock -q -r $@ \
+	/usr/bin/mock -q -r $@ \
 	     --resultdir=$(PWD)/$@ \
-	     $@.src.rpm
+	     $(PWD)/$@.src.rpm
 
 mock:: $(MOCKS)
 
