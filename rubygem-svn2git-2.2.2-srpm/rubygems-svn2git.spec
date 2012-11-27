@@ -1,13 +1,13 @@
 # Generated from svn2git-2.2.2.gem by gem2rpm -*- rpm-spec -*-
 %define rbname svn2git
 %define version 2.2.2
-%define release 1
+%define release 0.1
 
 Summary: A tool for migrating svn projects to git
 Name: rubygems-%{rbname}
 
 Version: %{version}
-Release: %{release}
+Release: %{release}%{?dist}
 Group: Development/Ruby
 License: Distributable
 URL: https://www.negativetwenty.net/redmine/projects/svn2git
