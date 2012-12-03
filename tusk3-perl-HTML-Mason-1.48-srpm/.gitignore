@@ -1,0 +1,6 @@
+*.rpm
+*~
+epel-*
+opentusk-*
+tusk3--*
+tusk3*

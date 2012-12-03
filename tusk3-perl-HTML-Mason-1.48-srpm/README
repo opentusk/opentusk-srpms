@@ -1,0 +1,8 @@
+SRPM .spec and patch files for tusk3-perl-HTML-Mason-1.48, required for TUSK.
+
+The TUSK 3.x version of Apache, in the tusk3-apache package, has odd layout
+and odd mod_perl components. The perl-HTML-Mason therefore requires customized
+installation specifically for that environment.
+
+
+	     	 Nico Kadel-Garcia <nico.kadel@tufts.edu>
